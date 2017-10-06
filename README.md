@@ -39,7 +39,7 @@ yarn watch
 ## Credits
 
 - [Tristan Pemble](https://github.com/tristanpemble)
-- [All Contributors](link-contributors)
+- [All Contributors][link-contributors]
 
 ## License
 
