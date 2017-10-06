@@ -1,6 +1,6 @@
 {
   "name": "@quartzy/prosemirror-suggestions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ProseMirror plugin for suggestions (i.e. mentions, tags)",
   "main": "dist/index.js",
   "author": "Tristan Pemble",
