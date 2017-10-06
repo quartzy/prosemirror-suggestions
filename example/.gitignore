@@ -1,0 +1,11 @@
+# editors
+/.idea
+
+# testing
+/coverage
+
+# production
+/build
+
+# dependencies
+/node_modules

@@ -1,0 +1,23 @@
+.App {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: row;
+  background: lightgray;
+}
+
+.App .column {
+  flex: 1;
+  overflow-y: scroll;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+  background: white;
+}
+
+.mention {
+  color: blue;
+  border-bottom: 1px solid blue;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+}

@@ -1,0 +1,41 @@
+{
+  "name": "prosemirror-suggestions-example",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "prosemirror-commands": "^0.23.0",
+    "prosemirror-example-setup": "^0.23.1",
+    "prosemirror-inputrules": "^0.23.0",
+    "prosemirror-keymap": "^0.23.0",
+    "prosemirror-markdown": "^0.23.0",
+    "prosemirror-menu": "^0.23.0",
+    "prosemirror-model": "^0.23.0",
+    "prosemirror-schema-basic": "^0.23.0",
+    "prosemirror-state": "^0.23.0",
+    "prosemirror-transform": "^0.23.0",
+    "prosemirror-view": "^0.23.0",
+    "@quartzy/prosemirror-suggestions": "link:../",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.13",
+    "sanitize.css": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/prosemirror-commands": "^0.22.0",
+    "@types/prosemirror-inputrules": "^0.21.0",
+    "@types/prosemirror-keymap": "^0.21.0",
+    "@types/prosemirror-markdown": "^0.21.0",
+    "@types/prosemirror-menu": "^0.21.2",
+    "@types/prosemirror-model": "^0.21.0",
+    "@types/prosemirror-schema-basic": "^0.21.0",
+    "@types/prosemirror-state": "^0.21.1",
+    "@types/prosemirror-transform": "^0.21.1",
+    "@types/prosemirror-view": "^0.21.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
