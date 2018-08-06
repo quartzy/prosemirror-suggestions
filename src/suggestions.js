@@ -28,7 +28,7 @@ export function triggerCharacter(char, { allowSpaces = false }) {
     let match;
 
     while (match = regexp.exec(text)) {
-      // Javascript doesn't have lookbehinds; this hacks a check that first character is " " or the line beginning
+      // JavaScript doesn't have lookbehinds; this hacks a check that first character is " " or the line beginning
       const prefix = match.input.slice(Math.max(0, match.index - 1), match.index);
       if (!/^[\s\0]?$/.test(prefix)) {
         continue;
@@ -62,6 +62,8 @@ export function suggestionsPlugin({
   onChange = () => false,
   onExit = () => false,
   onKeyDown = () => false,
+  escapeOnSelectionChange = false,
+  escapeKeys = [],
   debug = false,
 }) {
   return new Plugin({
@@ -110,11 +112,13 @@ export function suggestionsPlugin({
        * @returns {Object}
        */
       apply(tr, prev) {
+        const meta = tr.getMeta(this.key);
+        if (meta) { return meta; }
         const { selection } = tr;
         const next = { ...prev };
-
-        // We can only be suggesting if there is no selection
-        if (selection.from === selection.to) {
+        if (escapeOnSelectionChange && !tr.docChanged && tr.selectionSet) { // allow user to escape with arrow keys
+          next.active = false;
+        } else if (selection.from === selection.to) { // We can only be suggesting if there is no selection
           // Reset active state if we just left the previous suggestion range
           if (selection.from < prev.range.from || selection.from > prev.range.to) {
             next.active = false;
@@ -157,7 +161,17 @@ export function suggestionsPlugin({
       handleKeyDown(view, event) {
         const { active } = this.getState(view.state);
 
-        if (!active) return false;
+        if (!active) return false
+
+        if (escapeKeys.includes(event.key)) {
+          let tr = view.state.tr.setMeta(this.key, {
+            active: false,
+            range: {},
+            text: null
+          });
+          view.dispatch(tr);
+          return false;
+        }
 
         return onKeyDown({ view, event });
       },
