@@ -22,13 +22,13 @@ function createPosition(text) {
 function mention(text) {
   const $position = createPosition(text);
 
-  return triggerCharacter('@', { allowSpaces: true })($position);
+  return triggerCharacter('@', true)($position);
 }
 
 function tag(text) {
   const $position = createPosition(text);
 
-  return triggerCharacter('#', { allowSpaces: false })($position);
+  return triggerCharacter('#')($position);
 }
 
 describe('the triggerCharacter matcher', () => {
@@ -41,7 +41,7 @@ describe('the triggerCharacter matcher', () => {
     ]);
 
     const $position = doc.resolve(3);
-    const result = triggerCharacter('@', { allowSpaces: true })($position);
+    const result = triggerCharacter('@', true)($position);
 
     expect(result).toMatchObject({
       text: '@mention',

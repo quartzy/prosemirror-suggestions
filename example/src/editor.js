@@ -13,7 +13,7 @@ export const plugins = (setState) => {
   return [
     suggestionsPlugin({
       debug: true,
-      matcher: triggerCharacter('@', { allowSpaces: true }),
+      matcher: triggerCharacter('@', true),
       onEnter(args) {
         console.log('start', args);
       },

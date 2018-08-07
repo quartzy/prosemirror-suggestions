@@ -8,7 +8,7 @@ import { Decoration, DecorationSet } from 'prosemirror-view';
  * @param {Boolean} allowSpaces
  * @returns {function(*)}
  */
-export function triggerCharacter(char, { allowSpaces = false }) {
+export function triggerCharacter(char, allowSpaces = false) {
   /**
    * @param {ResolvedPos} $position
    */
@@ -62,8 +62,8 @@ export function suggestionsPlugin({
   onChange = () => false,
   onExit = () => false,
   onKeyDown = () => false,
-  escapeOnSelectionChange = false,
-  escapeKeys = [],
+  escapeOnSelectionChange = true,
+  escapeKeys = ['Escape', 'ArrowRight', 'ArrowLeft'],
   debug = false,
 }) {
   return new Plugin({
