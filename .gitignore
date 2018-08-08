@@ -1,13 +1,11 @@
 # builds
 /dist
-/markdown/dist
 
 # editors
 /.idea
 
 # dependencies
 /node_modules
-/markdown/node_modules
 
 # misc.
 npm-debug.log*

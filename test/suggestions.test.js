@@ -1,5 +1,5 @@
-import { schema } from 'prosemirror-schema-basic';
-import { triggerCharacter } from './suggestions';
+const { schema } = require('prosemirror-schema-basic');
+const { triggerCharacter } = require('../dist');
 
 const CUR = '\u2038';
 

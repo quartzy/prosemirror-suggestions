@@ -4,7 +4,7 @@
   "description": "ProseMirror plugin for suggestions (i.e. mentions, tags)",
   "main": "dist/index.js",
   "module": "src/index.js",
-  "author": "Tristan Pemble",
+  "author": "Johannes Wilm",
   "license": "Apache-2.0",
   "dependencies": {
     "prosemirror-state": "^1.2.2",
