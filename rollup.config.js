@@ -4,13 +4,11 @@ export default {
   input: './src/index.js',
   output: {
     format: 'cjs',
-    file: 'dist/index.js'
+    file: 'dist/index.js',
   },
   sourcemap: true,
-  plugins: [
-    babel()
-  ],
+  plugins: [babel()],
   external(id) {
-    return !/^[\.\/]/.test(id)
+    return !/^[\.\/]/.test(id);
   },
 };

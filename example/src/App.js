@@ -24,14 +24,14 @@ class App extends Component {
       schema.node('paragraph', null, [
         schema.text('Before '),
         schema.node('mention', { type: 'user', id: 42, label: 'Some User' }),
-        schema.text(' and after @abc @def @ghi @jkl @mno @pqr @stu @vwx @yz')
+        schema.text(' and after @abc @def @ghi @jkl @mno @pqr @stu @vwx @yz'),
       ]),
     ]);
 
     const state = EditorState.create({ doc, schema, plugins: plugins(this.setState) });
     const editor = new EditorView(this.editorEl, {
       state,
-      dispatchTransaction: (transaction) => {
+      dispatchTransaction: transaction => {
         const newState = this.state.editor.apply(transaction);
 
         this.setState({
@@ -48,17 +48,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="column" ref={el => this.editorEl = el}>
+        <div className="column" ref={el => (this.editorEl = el)} />
+        <div className="column">
+          <pre>{this.state.editor ? JSON.stringify(this.state.editor.toJSON(), null, 2) : ''}</pre>
         </div>
         <div className="column">
-          <pre>
-            {this.state.editor ? JSON.stringify(this.state.editor.toJSON(), null, 2) : ''}
-          </pre>
-        </div>
-        <div className="column">
-          <pre>
-
-          </pre>
+          <pre />
         </div>
       </div>
     );

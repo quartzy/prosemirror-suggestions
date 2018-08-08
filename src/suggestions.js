@@ -27,7 +27,7 @@ export function triggerCharacter(char, { allowSpaces = false }) {
 
     let match;
 
-    while (match = regexp.exec(text)) {
+    while ((match = regexp.exec(text))) {
       // Javascript doesn't have lookbehinds; this hacks a check that first character is " " or the line beginning
       const prefix = match.input.slice(Math.max(0, match.index - 1), match.index);
       if (!/^[\s\0]?$/.test(prefix)) {
@@ -49,7 +49,7 @@ export function triggerCharacter(char, { allowSpaces = false }) {
         return { range: { from, to }, text: match[0] };
       }
     }
-  }
+  };
 }
 
 /**

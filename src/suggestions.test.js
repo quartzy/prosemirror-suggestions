@@ -10,11 +10,7 @@ function createPosition(text) {
   expect(position).toBeGreaterThan(0);
   expect(position).toBeLessThanOrEqual(stripped.length + 1);
 
-  const doc = schema.node('doc', null, [
-    schema.node('paragraph', null, [
-      schema.text(stripped),
-    ]),
-  ]);
+  const doc = schema.node('doc', null, [schema.node('paragraph', null, [schema.text(stripped)])]);
 
   return doc.resolve(position);
 }
@@ -34,10 +30,7 @@ function tag(text) {
 describe('the triggerCharacter matcher', () => {
   it('will match when cursor is immediately after a node', () => {
     const doc = schema.node('doc', null, [
-      schema.node('paragraph', null, [
-        schema.node('hard_break'),
-        schema.text('@mention'),
-      ]),
+      schema.node('paragraph', null, [schema.node('hard_break'), schema.text('@mention')]),
     ]);
 
     const $position = doc.resolve(3);

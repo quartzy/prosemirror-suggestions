@@ -14,24 +14,30 @@ export const tagNodeSpec = {
   /**
    * @param {Node} node
    */
-  toDOM: node => ['span', {
-    'class': 'tag',
-    'data-tag-id': node.attrs.id,
-  }, node.attrs.id],
-
-  parseDOM: [{
-    tag: 'span[data-tag-id]',
-
-    /**
-     * @param {Element} dom
-     * @returns {{id: string}}
-     */
-    getAttrs: dom => {
-      const id = dom.getAttribute('data-tag-id');
-
-      return { id };
+  toDOM: node => [
+    'span',
+    {
+      class: 'tag',
+      'data-tag-id': node.attrs.id,
     },
-  }],
+    node.attrs.id,
+  ],
+
+  parseDOM: [
+    {
+      tag: 'span[data-tag-id]',
+
+      /**
+       * @param {Element} dom
+       * @returns {{id: string}}
+       */
+      getAttrs: dom => {
+        const id = dom.getAttribute('data-tag-id');
+
+        return { id };
+      },
+    },
+  ],
 };
 
 /**

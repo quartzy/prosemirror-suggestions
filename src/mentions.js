@@ -15,27 +15,33 @@ export const mentionNodeSpec = {
   selectable: false,
   atom: true,
 
-  toDOM: node => ['span', {
-    'class': 'mention',
-    'data-mention-type': node.attrs.type,
-    'data-mention-id': node.attrs.id,
-  }, `@${node.attrs.label}`],
-
-  parseDOM: [{
-    tag: 'span[data-mention-type][data-mention-id]',
-
-    /**
-     * @param {Element} dom
-     * @returns {{type: string, id: string, label: string}}
-     */
-    getAttrs: dom => {
-      const type = dom.getAttribute('data-mention-type');
-      const id = dom.getAttribute('data-mention-id');
-      const label = dom.innerText;
-
-      return { type, id, label };
+  toDOM: node => [
+    'span',
+    {
+      class: 'mention',
+      'data-mention-type': node.attrs.type,
+      'data-mention-id': node.attrs.id,
     },
-  }],
+    `@${node.attrs.label}`,
+  ],
+
+  parseDOM: [
+    {
+      tag: 'span[data-mention-type][data-mention-id]',
+
+      /**
+       * @param {Element} dom
+       * @returns {{type: string, id: string, label: string}}
+       */
+      getAttrs: dom => {
+        const type = dom.getAttribute('data-mention-type');
+        const id = dom.getAttribute('data-mention-id');
+        const label = dom.innerText;
+
+        return { type, id, label };
+      },
+    },
+  ],
 };
 
 /**
@@ -53,15 +59,18 @@ export function markdownSerializer() {
     const label = state.esc(node.attrs.label || '');
     const uri = state.esc(`mention://${node.attrs.type}/${node.attrs.id}`);
 
-    state.write(`@[${label}](${uri})`)
+    state.write(`@[${label}](${uri})`);
   };
 }
 
 export function addMentionsToMarkdownSerializer(serializer) {
-  return new MarkdownSerializer({
-    ...serializer.nodes,
-    mention: markdownSerializer(),
-  }, serializer.marks);
+  return new MarkdownSerializer(
+    {
+      ...serializer.nodes,
+      mention: markdownSerializer(),
+    },
+    serializer.marks,
+  );
 }
 
 export function markdownParser() {

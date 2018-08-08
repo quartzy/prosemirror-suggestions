@@ -9,7 +9,7 @@ export const schema = new Schema({
   marks: basicSchema.spec.marks,
 });
 
-export const plugins = (setState) => {
+export const plugins = setState => {
   return [
     suggestionsPlugin({
       debug: true,
@@ -23,12 +23,11 @@ export const plugins = (setState) => {
       onExit(args) {
         console.log('stop', args);
       },
-      onKeyDown({view, event}) {
+      onKeyDown({ view, event }) {
         // console.log(event.key);
         return false;
-      }
+      },
     }),
     ...exampleSetup({ schema }),
   ];
 };
-
