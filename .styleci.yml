@@ -1,0 +1,19 @@
+js:
+  tab-width: 2
+  use-tabs: false
+  print-width: 120
+  double-quotes: false
+  trailing-commas: all
+  semicolons: true
+  arrow-parens: avoid
+  bracket-spacing: true
+css:
+  tab-width: 2
+  use-tabs: false
+  print-width: 120
+  double-quotes: false
+  finder:
+    name:
+      - "*.css"
+      - "*.scss"
+
