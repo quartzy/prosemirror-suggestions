@@ -23,7 +23,7 @@ export const plugins = (setState) => {
       onExit(args) {
         console.log('stop', args);
       },
-      onKeyDown(view, event) {
+      onKeyDown({view, event}) {
         // console.log(event.key);
         return false;
       }
