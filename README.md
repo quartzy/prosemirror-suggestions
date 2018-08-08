@@ -1,11 +1,8 @@
-# @quartzy/prosemirror-suggestions
-
-[![Latest Version on NPM][ico-version]][link-npm]
-[![Software License][ico-license]](LICENSE)
-[![Build Status][ico-circleci]][link-circleci]
-[![Total Downloads][ico-downloads]][link-downloads]
+# prosemirror-suggestions
 
 A plugin for [ProseMirror](https://prosemirror.net/) that helps you add suggestions to your editor.
+
+This package is based on [@quartzy/prosemirror-suggestions](https://github.com/quartzy/prosemirror-suggestions) by Tristan Pemble.
 
 "Suggestions" is a loose concept; while we originally designed this plugin around `@mentions` or `#hash-tags`, we hope
 that it can be adapted to other use cases.
@@ -16,7 +13,7 @@ elements however you choose.
 ## Installation
 
 ```bash
-yarn add @quartzy/prosemirror-suggestions
+npm install --save prosemirror-suggestions
 ```
 
 ## Usage
@@ -27,19 +24,19 @@ yarn add @quartzy/prosemirror-suggestions
 
 ```bash
 # Run tests
-yarn test
+npm run test
 
 # Build distributable
-yarn build
+npm run build
 
 # Build and watch for changes
-yarn watch
+npm run watch
 ```
 
 ## Credits
 
+- [Johannes Wilm](https://github.com/johanneswilm)
 - [Tristan Pemble](https://github.com/tristanpemble)
-- [All Contributors][link-contributors]
 
 ## License
 
@@ -47,10 +44,7 @@ The Apache License, v2.0. Please see [License File](LICENSE) for more informatio
 
 [ico-version]: https://img.shields.io/npm/v/@quartzy/prosemirror-suggestions.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square
-[ico-circleci]: https://img.shields.io/circleci/project/github/quartzy/prosemirror-suggestions/master.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/npm/dt/@quartzy/prosemirror-suggestions.svg?style=flat-square
 
-[link-npm]: https://www.npmjs.com/package/@quartzy/prosemirror-suggestions
-[link-circleci]: https://circleci.com/gh/quartzy/prosemirror-suggestions/tree/master
-[link-downloads]: https://www.npmjs.com/package/@quartzy/prosemirror-suggestions
-[link-contributors]: ../../contributors
+[link-npm]: https://www.npmjs.com/package/prosemirror-suggestions
+[link-downloads]: https://www.npmjs.com/package/prosemirror-suggestions

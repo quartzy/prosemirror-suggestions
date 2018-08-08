@@ -1,14 +1,12 @@
-import babel from 'rollup-plugin-babel';
-
 export default {
   input: './src/index.js',
   output: {
     format: 'cjs',
-    file: 'dist/index.js'
+    file: 'dist/index.js',
+    sourcemap: true
   },
-  sourcemap: true,
   plugins: [
-    babel()
+    require("rollup-plugin-buble")({objectAssign: "Object.assign"})
   ],
   external(id) {
     return !/^[\.\/]/.test(id)
