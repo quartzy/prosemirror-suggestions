@@ -6,9 +6,9 @@
   "author": "Tristan Pemble",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "prosemirror-markdown": "^0.24.0",
-    "prosemirror-state": "^0.24.0",
-    "prosemirror-view": "^0.24.0"
+    "prosemirror-markdown": "^1.1.1",
+    "prosemirror-state": "^1.2.2",
+    "prosemirror-view": "^1.4.2"
   },
   "devDependencies": {
     "@types/jest": "^21.1.2",
