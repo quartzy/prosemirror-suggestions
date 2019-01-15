@@ -21,7 +21,7 @@ export const mentionNodeSpec = {
       class: 'mention',
       'data-mention-type': node.attrs.type,
       'data-mention-id': node.attrs.id,
-      'data-mention-label': node.attrs.label
+      'data-mention-label': node.attrs.label,
     },
     `@${node.attrs.label}`,
   ],
