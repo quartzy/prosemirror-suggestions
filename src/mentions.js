@@ -21,13 +21,14 @@ export const mentionNodeSpec = {
       class: 'mention',
       'data-mention-type': node.attrs.type,
       'data-mention-id': node.attrs.id,
+      'data-mention-label': node.attrs.label,
     },
     `@${node.attrs.label}`,
   ],
 
   parseDOM: [
     {
-      tag: 'span[data-mention-type][data-mention-id]',
+      tag: 'span[data-mention-type][data-mention-id][data-mention-label]',
 
       /**
        * @param {Element} dom
@@ -36,7 +37,7 @@ export const mentionNodeSpec = {
       getAttrs: dom => {
         const type = dom.getAttribute('data-mention-type');
         const id = dom.getAttribute('data-mention-id');
-        const label = dom.innerText;
+        const label = dom.getAttribute('data-mention-label');
 
         return { type, id, label };
       },
