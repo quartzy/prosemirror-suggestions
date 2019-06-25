@@ -32,5 +32,6 @@
     "watch": "rollup -c -w",
     "prepare": "npm run build",
     "test": "jest"
-  }
+  },
+  "files": ["dist"]
 }
